@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Red Hat Text', sans-serif;
+    height:100vh;
+    background: url(./images/pattern-hills.svg) right bottom no-repeat, url(./images/bg-stars.svg) top no-repeat, linear-gradient(to bottom, hsl(234, 17%, 12%), hsl(235, 16%, 14%));
+}
+
+main {
+    display:grid;
+    height:100vh;
+    grid-template-rows: 1fr 2fr 1fr;
+}
+
+#title {
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 0.5em;
+    margin:10em 1.5em 4em 1.5em;
+    text-align: center;
+    height: fit-content;
+}
+
+#time {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    column-gap: 1em;
+}
+
+.time-counter, .time-container {
+    width: 4.5rem;
+}
+
+.time-container {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5em;
+    background: linear-gradient(to bottom, hsl(236, 21%, 22%)50%, hsl(236, 21%, 25%)50%);
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px hsl(235, 16%, 7%);
+}
+
+.time-container h2{
+    background: linear-gradient(to top, hsl(345, 95%, 68%) 0% 50%, hsl(345, 50%, 55%) 50% 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.time-counter {
+    font-size: .5rem;
+    font-weight: bold;
+    color: hsl(237, 18%, 59%);
+    text-align: center;
+    margin-top: 1.5em;
+    letter-spacing: 0.5em;
+}
+
+#icons {
+    display: grid;
+    grid-template-columns:  repeat(5, 2rem);
+    justify-content: center;
+    align-content: center;
+}
+
+#facebook {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#pinterest {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#instagram {
+    grid-column-start: 5;
+    grid-column-end: 6;
+}    
+
+#facebook::before {
+    content:'\f082';
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+}
+
+#pinterest::before {
+    content:'\f0d2';
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+}
+
+#instagram::before {
+    content:'\f16d';
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+}
+
+#facebook::before, #pinterest::before, #instagram::before {
+    font-size: 2rem;
+    color: hsl(237, 18%, 59%);
+}
+
+#facebook:hover::before, #pinterest:hover::before, #instagram:hover::before {
+    color: hsl(345, 95%, 68%);
+    cursor: pointer;
+}
+
+@media (min-width:540px) {
+    .time-counter, .time-container {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .time-container{
+        font-size: 2em;
+    }
+}
+
+@media (min-width:900px) {
+    #title {
+        font-size: 1.4rem;
+        margin:6em 1.5em 4em 1.5em;
+    }
+ 
+    .time-counter, .time-container {
+        width: 9rem;
+        height: 8.5rem;
+    }
+
+    #time {
+        column-gap: 2em;
+    }
+
+    .time-container{
+        font-size: 2.9em;
+        box-shadow: 0px 12px 4px 0px hsl(235, 16%, 7%);
+    }
+
+    .time-counter {
+        font-size: .9rem;
+    }   
+}

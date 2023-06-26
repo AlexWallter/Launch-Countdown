@@ -10,6 +10,30 @@ body {
     background: url(./images/pattern-hills.svg) right bottom no-repeat, url(./images/bg-stars.svg) top no-repeat, linear-gradient(to bottom, hsl(234, 17%, 12%), hsl(235, 16%, 14%));
 }
 
+@keyframes flip {
+        0% {
+            transform: rotateX(0);
+        }
+
+        100% {
+            transform: rotateX(180deg);
+        }
+}
+
+@keyframes number {
+    0%, 25% {
+        background: linear-gradient(to bottom, hsl(345, 88%, 63%) 0% 50%, transparent 50% 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    100% {
+        background: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
 main {
     display:grid;
     height:100vh;
@@ -31,23 +55,51 @@ main {
     column-gap: 1em;
 }
 
-.time-counter, .time-container {
+.time-counter, 
+.time-container {
     width: 4.5rem;
 }
 
 .time-container {
+    position: relative;
     text-align: center;
     font-size: 1.5rem;
     padding: 0.5em;
-    background: linear-gradient(to bottom, hsl(236, 21%, 22%)50%, hsl(236, 21%, 25%)50%);
+    background:hsl(236, 21%, 22%);
     border-radius: 4px;
     box-shadow: 0px 4px 4px 0px hsl(235, 16%, 7%);
 }
 
-.time-container h2{
-    background: linear-gradient(to top, hsl(345, 95%, 68%) 0% 50%, hsl(345, 50%, 55%) 50% 100%);
+.time-container h2 {
+    background: -webkit-linear-gradient( hsl(345, 88%, 63%)0% 50% , hsl(345, 90%, 68%) 50% 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+#flip-card,
+#flipMin-card,
+#flipHours-card,
+#flipDays-card {
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 4.5rem;
+    height:2.25rem;
+    border-radius: 4px 4px 0px 0px;
+    background-color: hsl(236 21% 15% /0.4);
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    border-bottom: solid 1px hsl(234, 17%, 13%);
+}
+
+.active {
+    animation: flip 1s ease-in-out infinite;
+}
+
+.active h2 {
+    animation: number 1s ease-in-out infinite;
 }
 
 .time-counter {
@@ -111,12 +163,16 @@ main {
     font-variant: normal;
 }
 
-#facebook::before, #pinterest::before, #instagram::before {
+#facebook::before, 
+#pinterest::before, 
+#instagram::before {
     font-size: 2rem;
     color: hsl(237, 18%, 59%);
 }
 
-#facebook:hover::before, #pinterest:hover::before, #instagram:hover::before {
+#facebook:hover::before, 
+#pinterest:hover::before, 
+#instagram:hover::before {
     color: hsl(345, 95%, 68%);
     cursor: pointer;
 }
@@ -125,6 +181,14 @@ main {
     .time-counter, .time-container {
         width: 6rem;
         height: 6rem;
+    }
+
+    #flip-card,
+    #flipMin-card,
+    #flipHours-card,
+    #flipDays-card {
+        width: 6rem;
+        height: 3rem;
     }
 
     .time-container{
@@ -138,9 +202,18 @@ main {
         margin:6em 1.5em 4em 1.5em;
     }
  
-    .time-counter, .time-container {
+    .time-counter, 
+    .time-container {
         width: 9rem;
         height: 8.5rem;
+    }
+
+    #flip-card,
+    #flipMin-card,
+    #flipHours-card,
+    #flipDays-card {
+        width: 9rem;
+        height: 4.25rem;
     }
 
     #time {
@@ -154,5 +227,5 @@ main {
 
     .time-counter {
         font-size: .9rem;
-    }   
+    }
 }
